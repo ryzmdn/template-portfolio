@@ -1,0 +1,121 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 24px;
+  background: #f9fafb;
+  border-bottom: 1px solid #eee;
+  z-index: 50;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 32px;
+  font-size: 14px;
+}
+
+.header__link--dashboard {
+  display: none;
+}
+
+.header__action {
+  flex-shrink: 0;
+}
+
+.header__action a {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #111827;
+  color: #f9fafb;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.header__menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 3.5px;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.header__menu-toggle span {
+  width: 16px;
+  height: 2px;
+  background: #1f2937;
+  transition: all 0.3s ease;
+  border-radius: 9999px;
+  display: block;
+}
+
+.header__menu-toggle--open span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.header__menu-toggle--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.header__menu-toggle--open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+@media (max-width: 768px) {
+  .header__menu-toggle {
+    display: flex;
+  }
+
+  .header__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .header__nav--open {
+    max-height: 300px;
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  .header__nav a {
+    padding: 8px 0;
+  }
+
+  .header__link--dashboard {
+    display: block;
+    padding: 8px 16px;
+    width: 100%;
+    background: #111827;
+    color: #f9fafb;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .header__action {
+    display: none;
+  }
+}
